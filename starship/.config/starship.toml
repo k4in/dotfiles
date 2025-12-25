@@ -1,0 +1,44 @@
+format = """
+$custom\
+$directory\
+$git_branch\
+$git_status\
+$line_break\
+$character\
+"""
+
+right_format = """$all"""
+
+[nodejs]
+style = "#417e38"
+format = '[$symbol ($version)]($style)'
+symbol = "nodejs"
+
+[character]
+success_symbol = '[>](bold) '
+error_symbol = '[!](bold red) '
+
+[directory]
+style="green underline bold"
+
+[git_branch]
+style="bright-purple"
+format="[\\(($branch)\\)]($style)"
+
+
+[git_status]
+style="bold bright-purple"
+format='[$all_status]($style)'
+modified = "*"
+
+[custom.git_user]
+command = "git config user.name"
+when = "git rev-parse --git-dir 2> /dev/null" # git folder found
+format = "~[$output/]($style) "
+style = "bright-purple"
+
+[custom.system_user]
+command = "echo $USER"
+when = "! git rev-parse --git-dir 2> /dev/null"  # no git folder found
+format = "[$output/]($style) "
+style = "green"
