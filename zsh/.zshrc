@@ -6,6 +6,7 @@ ZSH_THEME=""
 plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
+    fzf
     )
 
 source $ZSH/oh-my-zsh.sh
@@ -29,6 +30,10 @@ alias home='cd ~'
 alias downloads='cd ~/Downloads'
 alias docs='cd ~/Documents'
 alias dotfiles="cd ~/dotfiles"
+
+# open file
+alias hxf='fzf -m --preview="cat {}" --bind "enter:become(hx {+})"'
+alias codef='fzf -m --preview="cat {}" --bind "enter:become(hx {+})"'
 
 # switch into progr folders
 progr() {
