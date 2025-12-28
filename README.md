@@ -5,7 +5,7 @@
 ### Helix
 #### LSP
 - marksman
-(Github)[https://github.com/artempyanykh/marksman/blob/main/docs/install.md]
+[Github][https://github.com/artempyanykh/marksman/blob/main/docs/install.md]
 - typescript-language-server
 ```bash
 npm i -g typescript typescript-language-server
