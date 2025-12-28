@@ -31,6 +31,11 @@ Install binaries directly according to instructions.
 [Website](https://docs.helix-editor.com/install.html)
 [Github](https://github.com/helix-editor/helix)
 #### LSPs
+##### VSCode-langservers for HTML, CSS and JSON
+```bash
+npm install -g vscode-langservers-extracted
+```
+
 ##### marksman
 install binaries directly from github. make sure $HOME/.local/bin is in $PATH
 [Github](https://github.com/artempyanykh/marksman/blob/main/docs/install.md)
