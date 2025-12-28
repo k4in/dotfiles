@@ -6,6 +6,9 @@ my dotfiles and settings.
 
 make sure that stow is installed
 
+## Nerdfont
+Install a Nerdfont.
+
 ## Rust
 
 [install Rust](https://rust-lang.org/tools/install/) via rustup to be able to use cargo for dependencies
@@ -20,7 +23,13 @@ Terminal of choice. [Website](https://alacritty.org/)
 ## oh-my-zsh
 Plugin-Framework for zsh-shell. [Website](https://ohmyz.sh/#install)
 
+## starship
+Terminal Prompt
+[Website](https://starship.rs/guide/#%F0%9F%9A%80-installation)
+
 ## NodeJS + NVM
+
+
 
 install NVM, then NodeJS (wip)
 
