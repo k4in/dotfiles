@@ -1,0 +1,23 @@
+This is a placeholder txt until we have a proper html file.
+
+Base:
+- nvm
+- node/npm
+- rust/rustup/cargo
+
+- nerdfont: "MonospaceKr Nerd Font"
+
+Terminal:
+- Alacritty
+- Starship
+- zsh, ohmyzsh
+- zellij
+
+Terminal Extensions
+- fzf, lazygit, ripgrep, zoxide
+
+Editor:
+- Helix
+- LSPs: vscode-langservers-extrated, marksman, typescript-language-server, taplo
+
+
