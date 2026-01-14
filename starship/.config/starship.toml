@@ -7,7 +7,7 @@ $line_break\
 $character\
 """
 
-right_format = """$all"""
+right_format = """$nodejs $container"""
 
 [nodejs]
 style = "#417e38"
@@ -30,6 +30,9 @@ format="[\\(($branch)\\)]($style)"
 style="bold bright-purple"
 format='[$all_status]($style)'
 modified = "*"
+
+[container]
+format=' [c:\[$name\]]($style)'
 
 [custom.git_user]
 command = "git config user.name"
