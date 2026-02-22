@@ -1,64 +1,17 @@
-# dotfiles
+# Dependencies
 
-my dotfiles and settings.
+## Main
 
-## stow
+#### zsh (shell)
 
-make sure that stow is installed
+```bash sudo dnf install zsh```
 
-## Nerdfont
-Install a Nerdfont.
+##### ghostty (as terminal, only if standard terminal is not sufficient)
 
-## Rust
+#### starship (prompt)
 
-[install Rust](https://rust-lang.org/tools/install/) via rustup to be able to use cargo for dependencies
+#### stow
 
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```
+#### git
 
-## Alacritty
-Terminal of choice. [Website](https://alacritty.org/)
-
-## oh-my-zsh
-Plugin-Framework for zsh-shell. [Website](https://ohmyz.sh/#install)
-
-## starship
-Terminal Prompt
-[Website](https://starship.rs/guide/#%F0%9F%9A%80-installation)
-
-## NodeJS + NVM
-
-
-
-install NVM, then NodeJS (wip)
-
-## Tools
-### Helix
-#### Installation
-Install binaries directly according to instructions.
-[Website](https://docs.helix-editor.com/install.html)
-[Github](https://github.com/helix-editor/helix)
-#### LSPs
-##### VSCode-langservers for HTML, CSS and JSON
-```bash
-npm install -g vscode-langservers-extracted
-```
-
-##### marksman
-install binaries directly from github. make sure $HOME/.local/bin is in $PATH
-[Github](https://github.com/artempyanykh/marksman/blob/main/docs/install.md)
-
-##### typescript-language-server
-```bash
-npm i -g typescript typescript-language-server
-```
-
-##### taplo
-```bash
-cargo install taplo-cli --locked --features lsp
-```
-
-### Zellij
-Multiplexer for Terminal. [Website](https://zellij.dev/)
-Can be installed via Cargo. [Docs](https://zellij.dev/documentation/installation.html)
+#### zed (editor)
