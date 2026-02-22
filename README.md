@@ -49,6 +49,19 @@ chmod +x ~/.local/bin/zoxide # give executable rights to binary
 # Installation
 
 1. Make sure zsh, stow and git are installed.
-2. Create ssh key and ssh config
+2. Create ssh key and ssh config 
+    ```bash .ssh/config
+    Host github_<user>
+        HostName github.com # url or ip of the Host
+        User git # ssh user
+        IdentityFile ~/.ssh/<keyfile> #path to keyfile
+        IdentitiesOnly yes # important setting, especially with more than one ssh-key.
+        # AddKeysToAgent yes # optional, adds key to ssh-agent on first use.
+        
+    ```
 3. clone dotfiles repo to ~/dotfiles
-4. stow needed configs. make sure to delete existing local configs before.
+4. stow needed configs. make sure to delete existing local configs before. make sure to define home-path!
+    ```bash
+    cd ~/dotfiles/configs
+    stow -t ~ zsh # to restore zsh, for example
+    ```
