@@ -1,17 +1,39 @@
 # Dependencies
 
-## Main
+### zsh (shell) + stow + git
 
-#### zsh (shell)
+```bash 
+sudo dnf install zsh stow git # install zsh, stow, git
+chsh -s $(which zsh) # set zsh as default shell
+```
 
-```bash sudo dnf install zsh```
+restart device after shell change!
 
 ##### ghostty (as terminal, only if standard terminal is not sufficient)
+<https://ghostty.org/>
 
-#### starship (prompt)
+##### starship (prompt)
+<https://starship.rs/>
 
-#### stow
+### zed (editor)
 
-#### git
+<https://zed.dev>
 
-#### zed (editor)
+required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Highlight
+
+### lazygit
+
+<https://github.com/jesseduffield/lazygit>
+
+```bash
+# download latest binary and extract
+mv lazygit ~/.local/bin/lazygit
+chmod +x ~/.local/bin/lazygit # give executable rights to binary
+```
+
+# Installation
+
+1. Make sure zsh, stow and git are installed.
+2. Create ssh key and ssh config
+3. clone dotfiles repo to ~/dotfiles
+4. stow needed configs. make sure to delete existing local configs before.
