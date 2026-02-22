@@ -1,0 +1,32 @@
+{
+  "React Function Component": {
+    "prefix": "rfc",
+    "body": [
+      "export function ${1:Component}() {",
+      "  return (",
+      "    <${2:div}>",
+      "      $0",
+      "    </${2:div}>",
+      "  );",
+      "}"
+    ],
+    "description": "React Functional Component"
+  },
+  "React Function Component (with props)": {
+    "prefix": "rfcp",
+    "body": [
+      "type ${1:Component}Props = {",
+      "  ${3://...props}",
+      "}",
+      "",
+      "export function ${1:Component}({$4}: ${1:Component}Props) {",
+      "  return (",
+      "    <${2:div}>",
+      "      $0",
+      "    </${2:div}>",
+      "  );",
+      "}"
+    ],
+    "description": "React Functional Component with props"
+  }
+}
