@@ -23,12 +23,27 @@ required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Hig
 
 ### lazygit
 
+Simple terminal UI for git commands
+
 <https://github.com/jesseduffield/lazygit>
 
 ```bash
 # download latest binary and extract
 mv lazygit ~/.local/bin/lazygit
 chmod +x ~/.local/bin/lazygit # give executable rights to binary
+```
+
+### zoxide
+
+A smarter cd command.
+
+<https://github.com/ajeetdsouza/zoxide>
+<https://zoxide.org/>
+
+```bash
+# download latest binary and extract
+mv zoxide ~/.local/bin/zoxide
+chmod +x ~/.local/bin/zoxide # give executable rights to binary
 ```
 
 # Installation
