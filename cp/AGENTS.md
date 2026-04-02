@@ -1,68 +1,81 @@
-# agents.md
+# [agents.md](http://agents.md)
 
 ## Mandatory Import & Router File Rules
 
-These rules are strict and non-optional. They must be applied in all code changes.
+These rules are absolute constraints. Every code change MUST comply. No exceptions.
 
-### 1) `routeTree.gen.ts` is read-only when TanStack Router is installed
-- If `tanstack-router` is a dependency, you MUST NEVER edit `routeTree.gen.ts` manually.
-- This file is generated/updated automatically by TanStack Router.
-- Any manual edits are invalid and will be overwritten.
-- To change routing behavior, edit route source files only.
+---
 
-### 2) Basepath imports are required
-- You MUST use basepath imports (`@/`) for internal project modules.
-- Relative imports (`./`, `../`) are FORBIDDEN for internal modules.
-- Example:
-  - `import { type Post } from "@/types/post.ts"`
-  - `import { type Post } from "./types/post.ts"` is not allowed.
+### 1) `routeTree.gen.ts` is auto-generated (DO NOT EDIT)
 
-### 3) Type import style is fixed and mandatory
-- You MUST use inline `type` modifiers inside named imports for ALL type imports.
-- `import type { ... }` is FORBIDDEN.
-- This applies in every case (type-only imports and mixed imports).
-- Required style:
-  - `import { type Foo, type Bar } from "@/types/test.ts"`
-  - `import { type Foo, object } from "@/types/test.ts"`
-  - `import type { Foo, Bar } from "@/types/test.ts"` is not allowed.
+* If `tanstack-router` exists in the project's dependencies: `routeTree.gen.ts` is **read-only**.
+* This file is generated and maintained by TanStack Router automatically.
+* **Never** add, remove, or modify any line in this file.
+* To alter routing behavior, edit the route source files inside `src/routes/`.
 
-### 4) Types
-ALWAYS use type to declare types. never interface. (only in the very rare cases where an interface is necessary)
+### 2) Basepath imports only
 
-### 5) Import Order
-- modules should always be important at the top of a file, in the following order: 
-  - css-imports: index.css, etc..
-  - react-imports: hooks, types, modules that come from react or react-dom.
-  - types: any type imports
-  - lib/utils: imports that come from the lib/ folder
-  - shadcn-components: imports from components/shadcn
-  - components: imports from components/
-  - other: any other imports
-- the import order has only to be applied in files that have >10 imports.
+* All imports of internal project modules **must** use the `@/` basepath alias.
+* **Never** use relative paths (`./`, `../`) for internal modules.
+* Correct: `import { type Post } from "@/types/post.ts"`
+* Wrong: `import { type Post } from "./types/post.ts"`
+
+### 3) Inline `type` modifier on imports
+
+* When importing types, the `type` keyword **must** appear inline inside the named import braces.
+* The top-level `import type { ... }` syntax is **forbidden**.
+* This applies to both pure-type imports and mixed imports.
+* Correct:
+  * `import { type Foo, type Bar } from "@/types/test.ts"`
+  * `import { type Foo, someObject } from "@/types/test.ts"`
+* Wrong:
+  * `import type { Foo, Bar } from "@/types/test.ts"`
+
+### 4) `type` over `interface`
+
+* **Always** use `type` to declare types. Never use `interface` unless it is technically required (extremely rare).
+
+### 5) Import ordering
+
+* Apply this ordering rule **only** when a file contains more than 10 imports.
+* When it applies, group and order imports top-to-bottom as follows:
+
+  1. **CSS** — stylesheets (`index.css`, etc.)
+  2. **React** — hooks, types, and modules from `react` or `react-dom`
+  3. **Types** — any type-only imports
+  4. **Lib/Utils** — imports from `lib/`
+  5. **Shadcn components** — imports from `components/shadcn/`
+  6. **Components** — imports from `components/`
+  7. **Other** — everything else
 
 ### 6) Project folder structure
-- index.html
-- package.json
-- components.json
-- vite.config.ts
-- src/
-  - index.css
-  - routeTree.gen.ts
-  - components/ #custom components
-    - shadcn/ #shadcn components have their own subfolder
-  - lib/
-    - utils/
-    - db/
-    - types/
-  - routes/ #follows tanstack-router file-routing naming convention
-    - __root.tsx
-    - index.tsx
-  - hooks/
-    - shadcn/ #shadcn hooks have their own subfolder
 
-This structure is not strict. Meaning that all folders are optional. but if they are present, they need to follow the above structure. There can be more files and folders than shown in the structure above. It is only a template.
+The canonical layout is shown below. All folders are **optional**, but any folder that exists **must** match this structure. Additional files and folders beyond what is listed are allowed.
 
+```
+index.html
+package.json
+components.json
+vite.config.ts
+src/
+  index.css
+  routeTree.gen.ts
+  components/          # custom components
+    shadcn/            # shadcn components (dedicated subfolder)
+  lib/
+    utils/
+    db/
+    types/
+  routes/              # TanStack Router file-based routing
+    __root.tsx
+    index.tsx
+  hooks/
+    shadcn/            # shadcn hooks (dedicated subfolder)
+```
+
+---
 
 ## Compliance
-- Any change that violates these rules must be considered non-compliant and corrected before merge.
-- These conventions take precedence over personal/editor defaults.
+
+* Any change that violates these rules is **non-compliant** and must be corrected before merge.
+* These rules override personal preferences and editor defaults.
