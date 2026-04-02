@@ -7,3 +7,4 @@ package-lock.json
 
 routeTree.gen.ts
 *.types.ts
+AGENTS.md
