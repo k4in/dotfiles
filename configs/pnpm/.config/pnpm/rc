@@ -1,0 +1,4 @@
+minimum-release-age=10080
+strict-peer-dependencies=true
+save-exact=true
+verify-store-integrity=true
