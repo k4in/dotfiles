@@ -89,8 +89,9 @@ chmod +x ~/.local/bin/lazygit # give executable rights to binary
 
 required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Highlight
 
-## nvm + nodejs + npm
+## nvm + nodejs + npm + pnpm
 <https://nodejs.org/en>
+<https://pnpm.io/>
 
 # Installation
 
