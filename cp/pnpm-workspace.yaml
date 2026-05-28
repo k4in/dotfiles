@@ -14,3 +14,5 @@ blockExoticSubdeps: true
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 10080 # 7 days
+
+# corepack use pnpm@latest-11
