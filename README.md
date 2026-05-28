@@ -93,6 +93,9 @@ required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Hig
 <https://nodejs.org/en>
 <https://pnpm.io/>
 
+install pnpm via corepack.
+install node via nvm, on servers install directly.
+
 # Installation
 
 1. Make sure zsh, stow and git are installed.

@@ -3,6 +3,7 @@ node_modules/
 coverage/
 .pnpm-store/
 pnpm-lock.yaml
+pnpm-workspace.yaml
 package-lock.json
 
 routeTree.gen.ts
