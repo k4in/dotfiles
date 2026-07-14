@@ -1,25 +1,48 @@
-# Required Dependencies
+# Dotfiles
 
-dotfiles/instructions are optimized for linux fedora
+Linux (Fedora) dotfiles managed with [GNU Stow](https://www.gnu.org/software/stow/).
 
-All packages should always be installed via dnf (or copr/dnf) if possible. Other suggested installation methods below are alternatives only!
+> **Package rule:** always prefer `dnf` (or COPR + `dnf`) when possible. Other install methods below are alternatives only.
 
-## zsh (shell) + stow + git
+## Contents
+
+- [Required dependencies](#required-dependencies)
+  - [zsh, stow & git](#zsh-stow--git)
+  - [ghostty](#ghostty)
+  - [starship](#starship)
+  - [zoxide](#zoxide)
+  - [zsh plugins](#zsh-plugins)
+  - [fzf](#fzf)
+  - [nvm, node, npm & pnpm](#nvm-node-npm--pnpm)
+- [Optional dependencies](#optional-dependencies)
+  - [lazygit](#lazygit)
+  - [zed](#zed)
+  - [pi coding agent](#pi-coding-agent)
+  - [opencode](#opencode)
+- [Installation](#installation)
+  - [SSH key & config](#ssh-key--config)
+  - [Stow a config](#stow-a-config)
+
+---
+
+## Required dependencies
+
+### zsh, stow & git
 
 ```bash
-sudo dnf install zsh stow git # install zsh, stow, git
+sudo dnf install zsh stow git
 chsh -s $(which zsh) # set zsh as default shell
 ```
 
-restart device after shell change!
+Restart the device after changing the shell.
 
-### ghostty (as terminal, only if standard terminal is not sufficient)
+### ghostty
 
-<https://ghostty.org/>
+Terminal (only if the default is not enough): <https://ghostty.org/>
 
-### starship (prompt)
+### starship
 
-<https://starship.rs/>
+Prompt: <https://starship.rs/>
 
 ```bash
 dnf copr enable atim/starship
@@ -28,94 +51,91 @@ dnf install starship
 
 ### zoxide
 
-A smarter cd command.
-
-<https://github.com/ajeetdsouza/zoxide>
-<https://zoxide.org/>
+A smarter `cd` command: <https://github.com/ajeetdsouza/zoxide> · <https://zoxide.org/>
 
 ```bash
 sudo dnf install zoxide
 ```
 
-or
+Or install the binary manually:
 
 ```bash
 # download latest binary and extract
 mv zoxide ~/.local/bin/zoxide
-chmod +x ~/.local/bin/zoxide # give executable rights to binary
+chmod +x ~/.local/bin/zoxide
 ```
 
-### zsh-autosuggestions and zsh-syntax-highlighting
+### zsh plugins
 
-<https://github.com/zsh-users/zsh-autosuggestions>
-<https://github.com/zsh-users/zsh-syntax-highlighting>
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-There is no binary, we have to clone the repo.
+No packages available — clone into `~/.zsh`:
 
 ```bash
-mkdir ~/.zsh # only if directory doesn't exist
+mkdir -p ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 ```
 
 ### fzf
 
-<https://github.com/junegunn/fzf> <https://junegunn.github.io/fzf/>
+Fuzzy finder: <https://github.com/junegunn/fzf> · <https://junegunn.github.io/fzf/>
 
 ```bash
 sudo dnf install fzf
 ```
 
-## nvm + nodejs + npm + pnpm
+### nvm, node, npm & pnpm
 
-<https://nodejs.org/en>
-install node via nvm, on servers install directly. make sure to update npm after node installation.
+Install Node via [nvm](https://nodejs.org/en) (on servers, install Node directly). Update npm after installing Node.
 
-install pnpm via corepack.
-
-<https://pnpm.io/>
+Install pnpm via [corepack](https://pnpm.io/):
 
 ```bash
 # inside a project:
 corepack use pnpm@latest-11
 ```
 
-Basic convention: Global packages CAN be installed via npm. Project-Packages should always be installed with pnpm.
+**Convention**
 
-Useful global packages: npm, corepack, opencode-ai, @earendil-works/pi-coding-agent
+| Scope            | Tool          |
+| ---------------- | ------------- |
+| Global packages  | `npm` is fine |
+| Project packages | always `pnpm` |
 
-# Optional Dependencies
+Useful global packages: `npm`, `corepack`, `opencode-ai`, `@earendil-works/pi-coding-agent`
 
-## lazygit
+---
 
-Simple terminal UI for git commands
+## Optional dependencies
 
-<https://github.com/jesseduffield/lazygit>
+### lazygit
+
+Simple terminal UI for git: <https://github.com/jesseduffield/lazygit>
 
 ```bash
 sudo dnf copr enable dejan/lazygit
 sudo dnf install lazygit
 ```
 
-or
+Or install the binary manually:
 
 ```bash
 # download latest binary and extract
 mv lazygit ~/.local/bin/lazygit
-chmod +x ~/.local/bin/lazygit # give executable rights to binary
+chmod +x ~/.local/bin/lazygit
 ```
 
-## zed (editor)
+### zed
 
-<https://zed.dev>
+Editor: <https://zed.dev>
 
-required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Highlight
+Required extensions: HTML, TOML, Git Firefly, Colored Zed Icons Theme, Color Highlight
 
-## pi coding agent:
+### pi coding agent
 
-<https://pi.dev/docs/latest>
-
-install globally via npm
+Docs: <https://pi.dev/docs/latest>
 
 ```bash
 npm install -g --ignore-scripts @earendil-works/pi-coding-agent
@@ -129,47 +149,47 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 pi install npm:pi-xai-oauth
 ```
 
-## opencode
+### opencode
 
 <https://opencode.ai>
-
-install globally via npm
 
 ```bash
 npm i -g opencode-ai
 ```
 
-# Installation
+---
 
-Make sure zsh, stow and git are installed.
+## Installation
 
-## create ssh key and ssh config
+Prerequisites: `zsh`, `stow`, and `git` are installed (see [above](#zsh-stow--git)).
+
+### SSH key & config
 
 ```bash
-# mkdir ~/.ssh if directory doesn't exist
+mkdir -p ~/.ssh
 cd ~/.ssh
 ssh-keygen -t ed25519 -C "<usage>"
-
-# create config
 touch config
 ```
 
-```bash
-# ~/.ssh/config
-Host github_<user>
-    HostName github.com # url or ip of the Host
-    User git # ssh user
-    IdentityFile ~/.ssh/<keyfile> #path to keyfile
-    IdentitiesOnly yes # important setting, especially with more than one ssh-key.
-    # AddKeysToAgent yes # optional, adds key to ssh-agent on first use.
+Example `~/.ssh/config`:
 
+```ssh-config
+Host github_<user>
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/<keyfile>
+    IdentitiesOnly yes # important with more than one SSH key
+    # AddKeysToAgent yes # optional: add key to ssh-agent on first use
 ```
 
-## stow a config
+### Stow a config
 
-- if not done yet, clone dotfiles repo to ~/dotfiles
-- stow needed configs. delete existing local configs before restoring.
-  ```bash
-  cd ~/dotfiles/configs
-  stow -t ~ zsh # to restore zsh
-  ```
+1. Clone this repo to `~/dotfiles` if you have not already.
+2. Remove any existing local configs you want to replace.
+3. Stow the packages you need:
+
+```bash
+cd ~/dotfiles/configs
+stow -t ~ zsh # example: restore zsh
+```
