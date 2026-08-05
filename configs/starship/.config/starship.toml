@@ -7,12 +7,17 @@ $line_break\
 $character\
 """
 
-right_format = """$nodejs $container"""
+right_format = """$nodejs $python $container"""
 
 [nodejs]
 style = "#417e38"
 format = '[$symbol ($version)]($style)'
 symbol = "nodejs"
+
+[python]
+style = "#306998"
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+symbol = "python"
 
 [character]
 success_symbol = '[>](bold) '
