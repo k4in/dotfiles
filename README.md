@@ -147,7 +147,7 @@ npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 Self-written extensions live in [`pi-extensions/`](pi-extensions/) and can be installed with `pi install ~/dotfiles/pi-extensions`.
 
-Install pi skills per project (`pi install -l …`), never globally — except `find-skills`, which pi ships by default.
+Install [find-skills](https://www.skills.sh/vercel-labs/skills/find-skills) globally; all other skills should be installed per project (`pi install -l …`).
 
 #### ~~xAI extension~~ (deprecated)
 
