@@ -18,6 +18,7 @@ Linux (Fedora) dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
   - [lazygit](#lazygit)
   - [zed](#zed)
   - [pi coding agent](#pi-coding-agent)
+  - [herdr](#herdr)
 - [Installation](#installation)
   - [SSH key & config](#ssh-key--config)
   - [Stow a config](#stow-a-config)
@@ -155,6 +156,24 @@ Install [find-skills](https://www.skills.sh/vercel-labs/skills/find-skills) glob
 
 ```bash
 pi install npm:pi-xai-oauth
+```
+
+### herdr
+
+Runtime for coding agents: <https://herdr.dev> · [install](https://herdr.dev/docs/install/)
+
+No `dnf` package — install the binary:
+
+```bash
+curl -fsSL https://herdr.dev/install.sh | sh
+```
+
+Or download the latest binary from [GitHub releases](https://github.com/herdrdev/herdr/releases) and place it on your PATH:
+
+```bash
+# download latest binary for your platform
+mv herdr-linux-x86_64 ~/.local/bin/herdr
+chmod +x ~/.local/bin/herdr
 ```
 
 ---
