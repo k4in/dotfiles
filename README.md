@@ -33,7 +33,7 @@ sudo dnf install zsh stow git
 chsh -s $(which zsh) # set zsh as default shell
 ```
 
-Restart the device after changing the shell.
+Reload the shell after changing it.
 
 ### ghostty
 
@@ -44,8 +44,8 @@ Terminal (only if the default is not enough): <https://ghostty.org/>
 Prompt: <https://starship.rs/>
 
 ```bash
-dnf copr enable atim/starship
-dnf install starship
+sudo dnf copr enable atim/starship
+sudo dnf install starship
 ```
 
 ### zoxide
@@ -103,10 +103,11 @@ corepack use pnpm@latest-11
 | Global packages  | `npm` is fine |
 | Project packages | always `pnpm` |
 
-After a Node version change, reinstall globals with:
+After a Node version change, reinstall globals and enable pnpm with:
 
 ```bash
 npm install -g --ignore-scripts npm corepack @earendil-works/pi-coding-agent
+corepack enable
 ```
 
 ---
@@ -118,7 +119,7 @@ npm install -g --ignore-scripts npm corepack @earendil-works/pi-coding-agent
 Simple terminal UI for git: <https://github.com/jesseduffield/lazygit>
 
 ```bash
-sudo dnf copr enable dejan/lazygit
+sudo sudo dnf copr enable dejan/lazygit
 sudo dnf install lazygit
 ```
 
