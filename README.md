@@ -18,7 +18,6 @@ Linux (Fedora) dotfiles managed with [GNU Stow](https://www.gnu.org/software/sto
   - [lazygit](#lazygit)
   - [zed](#zed)
   - [pi coding agent](#pi-coding-agent)
-  - [opencode](#opencode)
 - [Installation](#installation)
   - [SSH key & config](#ssh-key--config)
   - [Stow a config](#stow-a-config)
@@ -104,7 +103,11 @@ corepack use pnpm@latest-11
 | Global packages  | `npm` is fine |
 | Project packages | always `pnpm` |
 
-Useful global packages: `npm`, `corepack`, `opencode-ai`, `@earendil-works/pi-coding-agent`
+After a Node version change, reinstall globals with:
+
+```bash
+npm install -g --ignore-scripts npm corepack @earendil-works/pi-coding-agent
+```
 
 ---
 
@@ -141,20 +144,16 @@ Docs: <https://pi.dev/docs/latest>
 npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 ```
 
-#### xAI extension
+Self-written extensions live in [`pi-extensions/`](pi-extensions/) and can be installed with `pi install ~/dotfiles/pi-extensions`.
+
+Install pi skills per project (`pi install -l …`), never globally — except `find-skills`, which pi ships by default.
+
+#### ~~xAI extension~~ (deprecated)
 
 <https://pi.dev/packages/pi-xai-oauth>
 
 ```bash
 pi install npm:pi-xai-oauth
-```
-
-### opencode
-
-<https://opencode.ai>
-
-```bash
-npm i -g opencode-ai
 ```
 
 ---
