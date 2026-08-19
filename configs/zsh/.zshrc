@@ -20,6 +20,12 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 alias cd="z" #zoxide
 
+# lazygit
+alias lg="lazygit"
+
+# git
+alias gp="git pull"
+
 # fzf
 source <(fzf --zsh)
 
