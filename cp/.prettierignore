@@ -7,5 +7,6 @@ pnpm-workspace.yaml
 package-lock.json
 
 routeTree.gen.ts
+convex/_generated/
 *.types.ts
 AGENTS.md
